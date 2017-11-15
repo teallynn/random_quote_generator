@@ -1,8 +1,11 @@
-/* An array containing quotes with the structure: quote: The quote, source:
- * who said the quote, citation: if known, where the quote appeard or was
- * published, otherwise null. date: if known, when the quote occured or was
- * published, otherwise null, and tags: an array of categories the quote fits */
-
+/*
+ * An array containing quotes with the structure:
+ *    quote: The quote,
+ *    source: who said the quote,
+ *    citation: where the quote appeard or was published, null if unknown,
+ *    date: when the quote occured or was published, null if unknown,
+ *    tags: an array of categories the quote fits into.
+ */
 var quotes = [
   {
     quote: 'Happiness can be found at the darkest of times if only one remembers to turn on the light.',
