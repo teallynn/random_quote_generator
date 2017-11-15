@@ -23,7 +23,7 @@ var quotes = [
   {
     quote: 'Clothes make the man. Naked people have little or no influence over society.',
     source: 'Mark Twain',
-    citation: 'More Maxims of Mark,',
+    citation: 'More Maxims of Mark',
     date: '1927',
     tags: ['wit', 'humor', 'literature']
     },

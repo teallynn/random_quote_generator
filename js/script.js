@@ -8,20 +8,23 @@ function getRandomQuote() {
   return quote;
 }
 
+/** the getRandomColor function returns a random color from the colors array .
+ * New colors can be added to the array to add them to the cycle of background
+ * colors. */
+
 function getRandomColor() {
-  var colors = ['blue', 'purple', 'green', 'orange', 'yellow', 'red'];
+  var colors = ['blue', 'purple', 'green', 'orange', 'gold', 'red', 'teal'];
   var number = Math.floor( Math.random() * colors.length);
   var color = colors[number];
   return color;
 }
-
 
 /** the printQuote function takes no parameters and returns a
  * random quote that is printed to the page along with its source attribution.
  * It checks if a citation and date are present and displays
  * them as well if they exist. Note: a date will never be
  * displayed without a citation but a citation may be displayed
- * without a date. */
+ * without a date. It also changes the background color of the body element. */
 
 function printQuote() {
   var quote = getRandomQuote();
@@ -36,19 +39,22 @@ function printQuote() {
     }
     document.getElementById('quote-box').innerHTML = display;
     var color = getRandomColor();
-    var body = document.getElementsByTagName('body');
-    body[0].style.backgroundColor = color;
+    document.body.style.backgroundColor = color;
 }
 
+/** the repeatedTimeout function calls the printQuote function every 30 seconds
+ * to advance the displayed quote even if the button isnt pushed. */
 
+function repeatedTimeout(interval) {
+  printQuote();
+  window.setTimeout(repeatedTimeout, 30000);
+}
 
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-function repeatedTimeout() {
-  printQuote()
-  window.setTimeout(repeatedTimeout,30000)
-}
-
+/*this call to set timeout delays the start of the repeatedTimeout function by
+ * 30 seconds. Without it the first quote will be a rando quote with a random
+ * background color instead of the quote written into the HTML in index.html */
 window.setTimeout(repeatedTimeout, 30000);
