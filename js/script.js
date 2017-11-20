@@ -3,27 +3,20 @@
  * quotes array, which must be defined before this method (currently defined
  * in quotes.js.
  */
-let usedQuotes = [];
+let usedQuoteIds = [];
 
 function getRandomQuote() {
   let number = Math.floor( Math.random() * quotes.length);
-  if (quotes.length === 0) {
-    repopulateQuotesArray();
-  }
   let quote = quotes[number];
-  quotes.splice(number, 1);
-  usedQuotes.push(quote);
-  console.log(usedQuotes);
-  console.log(quotes);
+  while (usedQuoteIds.includes(quote.id)) {
+    number = Math.floor( Math.random() * quotes.length);
+  }
+  quote = quotes[number];
+  usedQuoteIds.push(quote.id);
+  console.log(usedQuoteIds);
   return quote;
 }
 
-
-function repopulateQuotesArray() {
-  while (usedQuotes.length > 0) {
-    quotes.push(usedQuotes.pop());
-  }
-}
 /**
  * the getRandomColor function returns a random color from the colors array .
  * New colors can be added to the array to add them to the cycle of background
@@ -60,27 +53,10 @@ function printQuote() {
     document.body.style.backgroundColor = color;
 }
 
-// NEW_QUOTE_INT sets the interval for the auto-advance function below. It is set to 30 seconds
-const NEW_QUOTE_INT = 30000;
-
-/**
- * the repeatedTimeout function calls the printQuote function every 30 seconds
- * to advance the displayed quote even if the button isnt pushed.
- */
-function repeatedTimeout() {
-  printQuote();
-  window.setTimeout(repeatedTimeout, NEW_QUOTE_INT);
-}
-
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 let showNewQuoteButton = document.getElementById('loadQuote');
 showNewQuoteButton.addEventListener("click", printQuote, false);
 
-/*
- * this call to set timeout delays the start of the repeatedTimeout function by
- * 30 seconds. Without it the first quote will be a random quote with a random
- * background color instead of the quote I want to display first which is
- * written into the HTML in index.html
- */
-window.setTimeout(repeatedTimeout, 30000);
+// Automatically advance quote every 30 seconds regardless of user input
+window.setInterval(printQuote, 30000);
