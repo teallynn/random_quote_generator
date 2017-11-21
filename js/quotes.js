@@ -5,7 +5,7 @@
  *    citation: where the quote appeard or was published, null if unknown,
  *    date: when the quote occured or was published, null if unknown,
  *    tags: an array of categories the quote fits into.
- *    id: numerical identifier.
+ *    id: number that should match the index in the array (0-indexed).
  */
 var quotes = [
   {

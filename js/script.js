@@ -1,10 +1,11 @@
+let usedQuoteIds = [];
+
 /**
  * the getRandomQuote function generates a quote picked at random from the
  * quotes array, which must be defined before this method (currently defined
- * in quotes.js.
+ * in quotes.js. The usedQuotesArray is populated with the indeces/ids of the
+ * quotes after they get ued so that none repeat until all have been used.
  */
-let usedQuoteIds = [];
-
 function getRandomQuote() {
   let number = Math.floor( Math.random() * quotes.length);
   if (usedQuoteIds.length === quotes.length) {
