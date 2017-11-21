@@ -14,7 +14,7 @@ var quotes = [
     citation: 'Harry Potter and the Prisoner of Azkaban',
     date: '1999',
     tags: ['inspiration', 'fiction', 'literature'],
-    id: 1
+    id: 0
   },
 
   {
@@ -23,7 +23,7 @@ var quotes = [
     citation: 'The Restaurant on the Edge of the Universe',
     date: '1980',
     tags: ['wit', 'humor', 'literature', 'politics'],
-    id: 2
+    id: 1
   },
 
   {
@@ -32,7 +32,7 @@ var quotes = [
     citation: 'More Maxims of Mark',
     date: '1927',
     tags: ['wit', 'humor', 'literature'],
-    id: 3
+    id: 2
     },
 
   {
@@ -41,7 +41,7 @@ var quotes = [
     citation: null,
     date: null,
     tags: ['wit', 'science', 'philosophy'],
-    id: 4
+    id: 3
   },
 
   {
@@ -50,6 +50,6 @@ var quotes = [
     citation: null,
     date: null,
     tags: ['wit', 'philosophy'],
-    id: 5
+    id: 4
   }
 ];

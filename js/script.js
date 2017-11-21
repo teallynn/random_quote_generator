@@ -7,11 +7,13 @@ let usedQuoteIds = [];
 
 function getRandomQuote() {
   let number = Math.floor( Math.random() * quotes.length);
-  let quote = quotes[number];
-  while (usedQuoteIds.includes(quote.id)) {
-    number = Math.floor( Math.random() * quotes.length);
+  if (usedQuoteIds.length === quotes.length) {
+    usedQuoteIds = [];
   }
-  quote = quotes[number];
+  while (usedQuoteIds.includes(number) === true) {
+      number = Math.floor( Math.random() * quotes.length);
+  }
+  let quote = quotes[number];
   usedQuoteIds.push(quote.id);
   console.log(usedQuoteIds);
   return quote;
